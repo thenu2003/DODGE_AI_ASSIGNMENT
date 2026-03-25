@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from typing import List, Dict, Any
 from pydantic import BaseModel
 import networkx as nx
+import os
 from graph_service import GraphService
 from dotenv import load_dotenv
 from chat_models import ChatQueryRequest, ChatQueryResponse
@@ -14,9 +15,12 @@ load_dotenv()
 
 app = FastAPI(title="SAP O2C Graph API", description="Graph-based API for SAP Order-to-Cash data exploration")
 
+FRONTEND_ORIGIN = os.getenv("FRONTEND_ORIGIN", "https://dodge-ai-assignment-gamma.vercel.app")
+LOCAL_ORIGINS = ["http://localhost:5173", "http://localhost:3000"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[FRONTEND_ORIGIN, *LOCAL_ORIGINS],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
