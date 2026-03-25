@@ -63,7 +63,7 @@ frontend/.env.*
 *.sqlite3
 *.pkl
 backend/graph.pkl
-database.db
+
 
 # -----------------------------
 # Logs / temp files

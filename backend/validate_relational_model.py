@@ -1,7 +1,8 @@
 import sqlite3
 import os
+from pathlib import Path
 
-DB_PATH = r"d:\train\database.db"
+DB_PATH = str(Path(__file__).resolve().parent / "database.db")
 
 def validate_system():
     if not os.path.exists(DB_PATH):

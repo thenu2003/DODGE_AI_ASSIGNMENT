@@ -2,9 +2,10 @@ import os
 import glob
 import json
 import sqlite3
+from pathlib import Path
 
 DATA_DIR = r"d:\train\dataset"
-DB_PATH = r"d:\train\database.db"
+DB_PATH = str(Path(__file__).resolve().parent / "database.db")
 
 TABLE_SCHEMAS = {
     "business_partners": {"pk": "businessPartner"},

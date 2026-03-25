@@ -1,12 +1,13 @@
 import sqlite3
 from typing import Any, Dict, List
+from pathlib import Path
 
 import networkx as nx
 
 from chat_models import QueryPlan
 from graph_service import GraphService
 
-DB_PATH = r"d:\train\database.db"
+DB_PATH = str(Path(__file__).resolve().parent / "database.db")
 
 
 class QueryExecutor:

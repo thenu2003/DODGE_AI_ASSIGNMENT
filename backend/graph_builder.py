@@ -1,8 +1,8 @@
 import sqlite3
 import networkx as nx
-import os
+from pathlib import Path
 
-DB_PATH = r"d:\train\database.db"
+DB_PATH = str(Path(__file__).resolve().parent / "database.db")
 
 class GraphBuilder:
     def __init__(self, db_path=DB_PATH):
